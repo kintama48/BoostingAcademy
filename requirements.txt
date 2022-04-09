@@ -2,4 +2,4 @@ aiohttp==3.7.4.post0
 google-api-python-client
 asyncio~=3.4.3
 discapty
-py-cord --pre
+py-cord>1.7.3
