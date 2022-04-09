@@ -22,7 +22,7 @@ class Claim(commands.Cog, name="claim"):
     def __init__(self, bot):
         self.bot = bot
 
-    @commands.command(name="new", description="")
+    @commands.command(name="new", description="Opens a new ticket")
     @commands.has_permissions(administrator=True)
     async def new(self, ctx):
         questions = ['Boost Info?', 'Pay?', 'Delivery?']

@@ -16,14 +16,13 @@ else:
         config = json.load(file)
 
 intents = discord.Intents.default()
-# intents.members = True
+intents.message_content = True
 bot = Bot(command_prefix=config["bot_prefix"], intents=intents)
-epoch = datetime.datetime.utcfromtimestamp(0)
-custom_invites = {}
 
 
 @bot.event
 async def on_ready():
+    print(bot.guilds)
     print(f"Logged in as {bot.user.name}")
     print(f"Discord.py API version: {discord.__version__}")
     print(f"Python version: {platform.python_version()}")
@@ -80,7 +79,7 @@ async def on_command_error(context, error):
         embed = discord.Embed(
             title="Error!",
             description="You are missing the permission `" + ", ".join(
-                error.missing_perms) + "` to execute this command!",
+                error.missing_permissions) + "` to execute this command!",
             color=0xFF3387
         )
         await context.send(embed=embed)
@@ -91,7 +90,9 @@ async def on_command_error(context, error):
             color=0xFF5733
         )
         await context.send(embed=embed)
-    raise error
+    else:
+        raise error
 
 
 bot.run(config["token"])
+

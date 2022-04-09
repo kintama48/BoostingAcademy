@@ -17,6 +17,7 @@ class Help(commands.Cog, name="help"):
 
     @commands.command(name="help", description="Displays the list of commands")
     async def help(self, context):  # lists all commands in all the cogs of the bot
+        print("help called")
         prefix = config["bot_prefix"]
         if not isinstance(prefix, str):
             prefix = prefix[0]
