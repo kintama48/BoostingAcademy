@@ -2,4 +2,4 @@ aiohttp==3.7.4.post0
 google-api-python-client
 asyncio~=3.4.3
 discapty
-git+https://github.com/Rapptz/discord.py@master
+py-cord --pre
